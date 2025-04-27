@@ -1,0 +1,15 @@
+default_stages: [ pre-commit, pre-push ]
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.7
+    hooks:
+      - id: ruff
+        args: [ --fix, --verbose ]
+
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        language_version: python3.12
+        stages: [ pre-commit ]

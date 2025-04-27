@@ -1,0 +1,54 @@
+[project]
+name = "loganalyzer"
+version = "0.1.0"
+description = "Log analysis tool"
+authors = [
+    {name = "Dmitrii Valedinskii", email = "dmvaled@gmail.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.12"
+keywords = ["logs", "analysis"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/valed-dm/loganalyzer"
+Repository = "https://github.com/valed-dm/loganalyzer"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "0.11.7"
+black = "25.1.0"
+pytest = "8.3.5"
+pytest-cov = "4.1.0"
+pre-commit = "3.6.1"
+
+[tool.poetry.group.test.dependencies]
+pytest-mock = "3.14.0"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+fix = true
+unsafe-fixes = true
+
+[tool.ruff.lint]
+extend-select = ["E", "F", "W", "I"]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+combine-as-imports = false
+force-sort-within-sections = true
+lines-after-imports = 2
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+skip-string-normalization = false
+
+[tool.pytest.ini_options]
+addopts = "-ra -q"
+testpaths = ["src/tests"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
